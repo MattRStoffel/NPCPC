@@ -1,6 +1,6 @@
 import ctypes
 import cv2
-import pyscreenshot as ImageGrab
+import pyscreenshot
 import numpy as np
 
 def getRoi():
@@ -8,7 +8,7 @@ def getRoi():
     user32 = ctypes.windll.user32
     # get the screencapture
     bbox=(0, 0, user32.GetSystemMetrics(0), user32.GetSystemMetrics(1))
-    screen = np.array(ImageGrab.grab(bbox))
+    screen = np.array(pyscreenshot.grab(bbox))
     # have user select the minimap
     roi = cv2.selectROI(screen)
     cv2.destroyAllWindows()
