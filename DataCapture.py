@@ -15,7 +15,7 @@ def getRoi():
     return roi
 
 def getImg(roi):
-    screen = np.array(ImageGrab.grab(bbox=(roi[0], roi[1], roi[0] + roi[2], roi[1] + roi[3])))
+    screen = np.array(pyscreenshot.grab(bbox=(roi[0], roi[1], roi[0] + roi[2], roi[1] + roi[3])))
     img = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
     return img
 
